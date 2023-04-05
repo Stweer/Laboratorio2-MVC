@@ -1,0 +1,15 @@
+﻿@model Laboratorio2_QuispeA.Models.ClsTabla
+@{
+    ViewBag.Title = "Calcular";
+}
+
+<h2>Tabla de Multiplicar</h2>
+<br /><br />
+@for(int i = 0; i<=12 ; i++)
+    {
+    var m = 0;
+    m = Convert.ToInt32(Model.numero * i);
+    <dib> @Model.numero X  @i  = @m </dib><br />
+    }
+
+

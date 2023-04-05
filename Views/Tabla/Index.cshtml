@@ -1,0 +1,18 @@
+﻿@model Laboratorio2_QuispeA.Models.ClsTabla
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tabla de Multiplicar</h2>
+<div>
+    @using (Html.BeginForm("Calcular", "Tabla", FormMethod.Post))
+    {
+        <p>
+            @Html.Label("Ingrese Numero : ")
+            @Html.EditorFor(model => model.numero)
+        </p>   
+        <br />
+        <input type="submit" value="Calcular" />
+    }
+</div>
+

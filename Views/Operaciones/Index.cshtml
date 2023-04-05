@@ -1,0 +1,37 @@
+﻿@model Laboratorio2_QuispeA.Models.ClsOperaciones
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Operaciones Aritmeticas</h2>
+<br />
+<div>
+    @using (Html.BeginForm("CalcularOperaciones", "Operaciones", FormMethod.Post))
+    {
+        <p>
+            @Html.Label("Ingrese Numero 1: ")
+            @Html.EditorFor(model => model.num1)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.num2,"Ingrese Numero 2: ")
+            @Html.EditorFor(model => model.num2)
+        </p>
+        <p>
+            @Html.Label("Tipo de Operacioon ")
+            @Html.DropDownListFor(model => model.tipo, new SelectList(
+            new List<Object> {
+                new { value = "S", text = "Suma"},
+                new { value = "R", text = "Resta"},
+                new { value = "M", text = "Multiplicacion"},
+                new { value = "D", text = "Division"},
+            },
+            "value",
+            "text",
+            2
+            ))
+        </p>
+        <br />
+        <input type="submit" value="Calcular" />
+    }
+</div>
+

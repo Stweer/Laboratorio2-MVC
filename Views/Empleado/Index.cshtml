@@ -1,0 +1,48 @@
+﻿@model Laboratorio2_QuispeA.Models.ClsEmpleado
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>TECHITO S.A.C</h2>
+<div>
+    @using (Html.BeginForm("Calcular", "Empleado", FormMethod.Post))
+    {
+        <p>
+            @Html.Label("Ingrese Nombre ")
+            @Html.EditorFor(model => model.nombre)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.dia, "Ingrese Cantidad de Dias: ")
+            @Html.EditorFor(model => model.dia)
+        </p>
+        <p>
+            @Html.Label("Tipo de Categoria ")
+            @Html.DropDownListFor(model => model.categoria, new SelectList(
+            new List<Object> {
+                new { value = "M", text = "Maestro"},
+                new { value = "O", text = "Operario"},
+                new { value = "P", text = "Peon"},
+            },
+            "value",
+            "text",
+            2
+            ))
+        </p>
+
+        <p>
+            @Html.Label("Tipo de Categoria ")
+            @Html.DropDownListFor(model => model.condicion, new SelectList(
+            new List<Object> {
+                new { value = "true", text = "20 %"},
+                new { value = "false", text = "10 %"},          
+            },
+            "value",
+            "text",
+            2
+            ))
+        </p>
+        <br />
+        <input type="submit" value="Calcular" />
+    }
+</div>
+
